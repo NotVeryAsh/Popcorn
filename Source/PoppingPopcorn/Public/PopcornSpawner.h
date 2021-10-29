@@ -23,7 +23,7 @@ public:
 	float SpawnTimeDecrement = 0.003f;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Spawning")
-	float SpawnTime = 0.3f;
+	float SpawnTime = 0.2f;
 
 	UFUNCTION(BlueprintCallable, Category="Game State")
 	void StartGame();	
