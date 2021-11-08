@@ -63,10 +63,9 @@ void APopcornSpawner::SpawnPopcorn()
 		return;
 	}
 	
-	
 	FActorSpawnParameters SpawnParameters;
 	SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::DontSpawnIfColliding;
-	const FVector Location = GetActorLocation();
-	const FRotator Rotation = GetActorRotation();
-	GetWorld()->SpawnActor(PopcornClass, &Location, &Rotation, SpawnParameters);
+	const FVector Scale = FVector(1.8);
+	const FTransform Transform = FTransform(GetActorRotation(), GetActorLocation(), Scale);
+	GetWorld()->SpawnActor(PopcornClass, &Transform, SpawnParameters);
 }

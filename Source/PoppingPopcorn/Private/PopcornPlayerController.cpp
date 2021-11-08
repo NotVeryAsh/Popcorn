@@ -19,6 +19,7 @@ void APopcornPlayerController::BeginPlay()
 	bShowMouseCursor = true;
 
 	MenuWidget = CreateWidget(this, MenuWidgetClass);
+	MenuButtonsWidget = CreateWidget(this, MenuButtonsWidgetClass);
 	GameTimerWidget = CreateWidget(this, GameTimerWidgetClass);
 	GameOverWidget = CreateWidget(this, GameOverWidgetClass);
 	
@@ -26,6 +27,8 @@ void APopcornPlayerController::BeginPlay()
 	{
 		return;
 	}
+	
+	MenuButtonsWidget->AddToViewport();
 
 	TArray<AActor*> CameraActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACameraActor::StaticClass(), CameraActors);

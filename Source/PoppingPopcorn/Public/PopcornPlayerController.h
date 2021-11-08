@@ -31,6 +31,12 @@ protected:
 	
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category="Widgets")
 	UUserWidget* MenuWidget;
+	
+	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category="Widgets")
+	UUserWidget* MenuButtonsWidget;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Widgets")
+	TSubclassOf<UUserWidget> MenuButtonsWidgetClass;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Widgets")
 	TSubclassOf<UUserWidget> GameTimerWidgetClass;

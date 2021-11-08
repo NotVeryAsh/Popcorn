@@ -5,6 +5,7 @@
 #include "Components/SphereComponent.h"
 #include "PaperSpriteComponent.h"
 #include "PaperSprite.h"
+#include "PopcornGameInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "PoppingPopcorn/PoppingPopcorn.h"
 
@@ -77,6 +78,10 @@ void APopcorn::ExplodePopcorn()
 	Sprite->SetSprite(PopcornSprites[RandomInt]);
 	RadialForceComponent->FireImpulse();
 
-	UGameplayStatics::PlaySound2D(GetWorld(), PopcornPopSound);
+    UPopcornGameInstance* GameInstance = Cast<UPopcornGameInstance>(GetGameInstance());
+	if(!GameInstance->IsGameSoundMuted())
+	{
+		UGameplayStatics::PlaySound2D(GetWorld(), PopcornPopSound);
+	}
 }
 
